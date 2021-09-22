@@ -2,17 +2,27 @@ import java.util.Scanner;
 
 public class Controller {
 
-//    public static void main(String[] args) {
-//        Controller m = new Controller();
-//        m.welcome(m.initUser());
-//    }
-//
+    Deposit deposit;
+    Withdraw withdraw;
+    PreviousTXN previousTxn;
+    Balance balance;
+    int currentBal;
+    User user;
+
+    public Controller() {
+        deposit = new Deposit();
+        withdraw = new Withdraw();
+        previousTxn = new PreviousTXN();
+        balance = new Balance();
+    }
+
     public void run() {
         welcome(initUser());
+        selection(user);
     }
 
     public User initUser() {
-        User user = new User();
+        user = new User();
         user.createUser();
         return user;
     }
@@ -34,7 +44,8 @@ public class Controller {
         Scanner scan = new Scanner(System.in);
         int selection = scan.nextInt();
         if(selection == 1) {
-
+            currentBal = balance.currentBalance(user);
+            System.out.println("Current balance is: " + currentBal);
 
         }
     }
