@@ -41,12 +41,19 @@ public class Controller {
     }
 
     public void selection (User user) {
+        //TODO - TRY CATCH & Validator
         Scanner scan = new Scanner(System.in);
         int selection = scan.nextInt();
         if(selection == 1) {
-            currentBal = balance.currentBalance(user);
-            System.out.println("Current balance is: " + currentBal);
+            //currentBal = balance.currentBalance(user);
+            user.setBalance(balance.currentBalance(user));
+            //System.out.println("Current balance is: " + currentBal);
+            System.out.println("Current balance is: " + user.getBalance());
 
+        } else if (selection == 2) {
+            deposit.makeDeposit();
+            deposit.updatedBalance(user.getBalance());
+            //deposit.updatedBalance(currentBal);
         }
     }
 }
