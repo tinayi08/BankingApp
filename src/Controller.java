@@ -48,14 +48,18 @@ public class Controller {
 
 
     private void selection (User user) {
-
         int selection = validator.selection(1,5);
         if(selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
 
         } else if (selection == 2) {
-            deposit.userSelectedDeposit(user);
+            do {
+                //deposit.userSelectedDeposit(user, validator.deposit());
+                deposit.userSelectedDeposit(user);
+                System.out.println("4");
+            } while(again("make another deposit?"));
+
         }
     }
 
@@ -69,15 +73,5 @@ public class Controller {
         } else
             return false;
     }
-//    private boolean again() {
-//        //TODO - Try/Catch
-//        Scanner scan = new Scanner(System.in);
-//        System.out.println("\nWould you like to return to the main menu?");
-//        System.out.println("Enter 1 for Yes or 2 for No");
-//        int answer =  validator.selection(1,2);
-//        if (answer == 1) {
-//            return true;
-//        } else
-//            return false;
-//    }
+
 }

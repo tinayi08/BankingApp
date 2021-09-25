@@ -30,4 +30,20 @@ public class Validator {
         return selection;
 
     }
+
+    public int deposit() {
+        Scanner scan = new Scanner(System.in);
+        boolean isValid = false;
+        int deposit = 0;
+        while (!isValid) {
+            try {
+                deposit = scan.nextInt();
+                isValid = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid entry:");
+                scan.next();
+            }
+        }
+        return deposit;
+    }
 }
