@@ -42,6 +42,7 @@ public class Controller {
 
     public void selection (User user) {
         //TODO - TRY CATCH & Validator
+        //TODO - Create a loop so it can select different options
         Scanner scan = new Scanner(System.in);
         int selection = scan.nextInt();
         if(selection == 1) {
@@ -51,9 +52,11 @@ public class Controller {
             System.out.println("Current balance is: " + user.getBalance());
 
         } else if (selection == 2) {
-            deposit.makeDeposit();
-            deposit.updatedBalance(user.getBalance());
-            //deposit.updatedBalance(currentBal);
+            do {
+                deposit.makeDeposit();
+                user.setBalance(deposit.updatedBalance(user.getBalance()));
+            } while (deposit.anotherDeposit());
+
         }
     }
 }
