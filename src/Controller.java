@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class Controller {
 
-    Deposit deposit;
-    Withdraw withdraw;
+    Transaction transaction;
     PreviousTXN previousTxn;
     Balance balance;
     int currentBal;
@@ -11,8 +10,7 @@ public class Controller {
     Validator validator;
 
     public Controller() {
-        deposit = new Deposit();
-        withdraw = new Withdraw();
+        transaction = new Transaction();
         previousTxn = new PreviousTXN();
         balance = new Balance();
         validator = new Validator();
@@ -56,10 +54,13 @@ public class Controller {
         } else if (selection == 2) {
             do {
                 //deposit.userSelectedDeposit(user, validator.deposit());
-                deposit.userSelectedDeposit(user);
-                System.out.println("4");
+                transaction.makeTransaction(user, "deposit");
             } while(again("make another deposit?"));
 
+        } else if (selection == 3) {
+            do {
+                transaction.makeTransaction(user,"withdraw");
+            } while (again("make another withdraw?"));
         }
     }
 
