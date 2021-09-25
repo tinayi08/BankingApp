@@ -18,25 +18,24 @@ public class Controller {
 
     public void run() {
         welcomeMessage(initUser());
-
         do {
             menu();
             selection(user);
         } while (returnToMainMenu());
     }
 
-    public User initUser() {
+    private User initUser() {
         user = new User();
         user.createUser();
         return user;
     }
 
-    public void welcomeMessage(User initUser) {
+    private void welcomeMessage(User initUser) {
         System.out.println("Welcome to the bank, " + initUser.name + ". What would you like" +
                 " to do today?");
     }
 
-    public void menu() {
+    private void menu() {
         System.out.println("\nSelect from the following options:");
         System.out.println("1 - Check your balance");
         System.out.println("2 - Make a deposit");
@@ -46,27 +45,27 @@ public class Controller {
     }
 
 
-    public void selection (User user) {
+    private void selection (User user) {
         //TODO - TRY CATCH & Validator
         //TODO - Create a loop so it can select different options
         Scanner scan = new Scanner(System.in);
         int selection = scan.nextInt();
         if(selection == 1) {
-            //currentBal = balance.currentBalance(user);
             user.setBalance(balance.currentBalance(user));
-            //System.out.println("Current balance is: " + currentBal);
             System.out.println("Current balance is: " + user.getBalance());
 
         } else if (selection == 2) {
-            do {
-                deposit.makeDeposit();
-                user.setBalance(deposit.updatedBalance(user.getBalance()));
-            } while (deposit.anotherDeposit());
+            deposit.userSelectedDeposit(user);
+//            do {
+//                deposit.makeDeposit();
+//                user.setBalance(deposit.updatedBalance(user.getBalance()));
+//            } while (deposit.anotherDeposit());
 
         }
     }
 
-    public boolean returnToMainMenu() {
+    private boolean returnToMainMenu() {
+        //TODO - Try/Catch
         Scanner scan = new Scanner(System.in);
         System.out.println("\nWould you like to return to the main menu?");
         System.out.println("Enter 1 for Yes or 2 for No");

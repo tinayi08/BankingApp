@@ -3,6 +3,13 @@ import java.util.Scanner;
 public class Deposit {
     int deposit;
 
+    public void userSelectedDeposit(User user) {
+        do {
+            makeDeposit();
+            user.setBalance(updatedBalance(user.getBalance()));
+        } while (anotherDeposit());
+    }
+
     public int makeDeposit() {
         //TODO - Add Try/Catch
         Scanner scan = new Scanner(System.in);
