@@ -34,11 +34,11 @@ public class User {
     }
 
     public void createUser() {
-        System.out.println("Welcome to the bank");
+        System.out.println("Hello");
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter your name");
+        System.out.println("Please enter your name:");
         this.name = scan.next();
-        System.out.println("Please enter your account number");
+        System.out.println("Please enter your account number:");
         this.accNum = scan.nextInt();
 
     }

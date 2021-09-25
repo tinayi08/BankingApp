@@ -8,12 +8,14 @@ public class Controller {
     Balance balance;
     int currentBal;
     User user;
+    Validator validator;
 
     public Controller() {
         deposit = new Deposit();
         withdraw = new Withdraw();
         previousTxn = new PreviousTXN();
         balance = new Balance();
+        validator = new Validator();
     }
 
     public void run() {
@@ -21,7 +23,7 @@ public class Controller {
         do {
             menu();
             selection(user);
-        } while (returnToMainMenu());
+        } while (again("return to the main menu?"));
     }
 
     private User initUser() {
@@ -46,33 +48,36 @@ public class Controller {
 
 
     private void selection (User user) {
-        //TODO - TRY CATCH & Validator
-        //TODO - Create a loop so it can select different options
-        Scanner scan = new Scanner(System.in);
-        int selection = scan.nextInt();
+
+        int selection = validator.selection(1,5);
         if(selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
 
         } else if (selection == 2) {
             deposit.userSelectedDeposit(user);
-//            do {
-//                deposit.makeDeposit();
-//                user.setBalance(deposit.updatedBalance(user.getBalance()));
-//            } while (deposit.anotherDeposit());
-
         }
     }
 
-    private boolean returnToMainMenu() {
-        //TODO - Try/Catch
+    private boolean again(String title) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("\nWould you like to return to the main menu?");
+        System.out.println("\nWould you like to " + title);
         System.out.println("Enter 1 for Yes or 2 for No");
-        int answer = scan.nextInt();
+        int answer =  validator.selection(1,2);
         if (answer == 1) {
             return true;
         } else
             return false;
     }
+//    private boolean again() {
+//        //TODO - Try/Catch
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("\nWould you like to return to the main menu?");
+//        System.out.println("Enter 1 for Yes or 2 for No");
+//        int answer =  validator.selection(1,2);
+//        if (answer == 1) {
+//            return true;
+//        } else
+//            return false;
+//    }
 }

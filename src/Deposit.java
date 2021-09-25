@@ -10,7 +10,7 @@ public class Deposit {
         } while (anotherDeposit());
     }
 
-    public int makeDeposit() {
+    private int makeDeposit() {
         //TODO - Add Try/Catch
         Scanner scan = new Scanner(System.in);
         System.out.println("How much would you like to deposit today?");
@@ -19,13 +19,13 @@ public class Deposit {
         return deposit;
     }
 
-    public int updatedBalance(int currentBalance) {
+    private int updatedBalance(int currentBalance) {
         int updatedBal = currentBalance + deposit;
         System.out.println("Your balance is now " + updatedBal);
         return updatedBal;
     }
 
-    public boolean anotherDeposit() {
+    private boolean anotherDeposit() {
         //TODO - Add Try/Catch
         Scanner scan = new Scanner(System.in);
         System.out.println("Would you like to make another deposit?");
