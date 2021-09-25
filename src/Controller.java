@@ -17,8 +17,12 @@ public class Controller {
     }
 
     public void run() {
-        welcome(initUser());
-        selection(user);
+        welcomeMessage(initUser());
+
+        do {
+            menu();
+            selection(user);
+        } while (returnToMainMenu());
     }
 
     public User initUser() {
@@ -27,18 +31,20 @@ public class Controller {
         return user;
     }
 
-    public void welcome (User initUser) {
-        Scanner scan = new Scanner(System.in);
+    public void welcomeMessage(User initUser) {
         System.out.println("Welcome to the bank, " + initUser.name + ". What would you like" +
                 " to do today?");
-        System.out.println("Select from the following options");
+    }
+
+    public void menu() {
+        System.out.println("\nSelect from the following options:");
         System.out.println("1 - Check your balance");
         System.out.println("2 - Make a deposit");
         System.out.println("3 - Make a withdrawal");
         System.out.println("4 - View the previous transaction");
         System.out.println("5 - Exit");
-
     }
+
 
     public void selection (User user) {
         //TODO - TRY CATCH & Validator
@@ -58,5 +64,16 @@ public class Controller {
             } while (deposit.anotherDeposit());
 
         }
+    }
+
+    public boolean returnToMainMenu() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("\nWould you like to return to the main menu?");
+        System.out.println("Enter 1 for Yes or 2 for No");
+        int answer = scan.nextInt();
+        if (answer == 1) {
+            return true;
+        } else
+            return false;
     }
 }
