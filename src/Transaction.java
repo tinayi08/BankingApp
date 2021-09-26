@@ -6,25 +6,26 @@ public class Transaction {
 
     public Transaction() {
         validator = new Validator();
+        //PreviousTXN should be here OR Transaction should be in PreviousTXN
     }
 
     public void makeTransaction(User user, String action) {
-        howMuchToMove(action);
-        //howMuchToDeposit();
+        howMuchToMove(action, user.getBalance());
         user.setBalance(updatedBalance(user.getBalance(), action));
+        //return amount;
     }
 
-    private int howMuchToMove(String action) {
+    private void howMuchToMove(String action, int currentBal) {
         Scanner scan = new Scanner(System.in);
         System.out.println("How much would you like to " + action + " today?");
-        //TODO - Try to make this better
-        amount = validator.amountToMove();
-        //amount = new Validator().deposit();
-        return amount;
+        if (action.equalsIgnoreCase("deposit")) {
+            amount = validator.amountToDeposit();
+        } else
+            amount = validator.amountToWithdraw(currentBal);
+
+        //return amount;
     }
-//    private void howMuchToDeposit() {
-//        System.out.println("How much would you like to deposit today?");
-//    }
+
 
     private int updatedBalance(int currentBalance, String action) {
         int updatedBal = 0;

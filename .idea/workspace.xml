@@ -4,7 +4,12 @@
     <list default="true" id="ad69cbf9-caec-4ee3-aaad-cdb60e9430aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BankingApp/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankingApp/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BankingApp/Exit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BankingApp/PreviousTXN.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankingApp/PreviousTXN.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BankingApp/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BankingApp/Transaction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PreviousTXN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PreviousTXN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Validator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

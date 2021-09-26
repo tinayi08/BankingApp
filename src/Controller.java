@@ -41,38 +41,38 @@ public class Controller {
         System.out.println("2 - Make a deposit");
         System.out.println("3 - Make a withdrawal");
         System.out.println("4 - View the previous transaction");
-        System.out.println("5 - Exit");
+
     }
 
-
     private void selection (User user) {
-        int selection = transaction.validator.selection(1,5);
-
+        int selection = transaction.validator.selection(1,4);
         if(selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
-
         } else if (selection == 2) {
+
             do {
                 transaction.makeTransaction(user, "deposit");
             } while(again("make another deposit?"));
 
         } else if (selection == 3) {
             do {
+                if (user.getBalance() == 0) {
+                    System.out.println("Your balance is 0. You have no funds to withdraw.");
+                    return;
+                }
                 transaction.makeTransaction(user,"withdraw");
             } while (again("make another withdraw?"));
         } else if (selection == 4) {
-
-        } else
-            return;
+            //TODO -- Make an array for previous transaction...
+            //previousTxn.lastTransaction(prevTXNSelection, amount);
+        }
     }
 
     private boolean again(String title) {
         Scanner scan = new Scanner(System.in);
         System.out.println("\nWould you like to " + title);
-        //System.out.println("Enter 1 for Yes or 2 for No");
         String answer = transaction.validator.yesOrNo();
-        //int answer = transaction.validator.selection(1,2);
         if (answer.equalsIgnoreCase("yes")) {
             return true;
         } else

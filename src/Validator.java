@@ -32,7 +32,7 @@ public class Validator {
 
     }
 
-    public int amountToMove() {
+    public int amountToDeposit() {
         Scanner scan = new Scanner(System.in);
         boolean isValid = false;
         int deposit = 0;
@@ -47,6 +47,28 @@ public class Validator {
         }
         return deposit;
     }
+
+    public int amountToWithdraw(int currentBal) {
+        Scanner scan = new Scanner(System.in);
+        boolean isValid = false;
+        int withdraw = 0;
+        while (!isValid) {
+            try {
+                withdraw = scan.nextInt();
+                while(withdraw > currentBal) {
+                    System.out.println("You have insufficient funds." +
+                            " Please enter an amount " + currentBal + " or less");
+                    withdraw = scan.nextInt();
+                }
+                isValid = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid entry:");
+                scan.next();
+            }
+        }
+        return withdraw;
+    }
+
 
     public String yesOrNo() {
         Scanner scan = new Scanner(System.in);
