@@ -13,14 +13,15 @@ public class Validator {
                 userIntInput(selection, begRange, endRange);
                 isValid = true;
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid entry:");
+                System.out.println("Please select a valid entry between " + begRange
+                        + " and " + endRange + ":");
                 scan.next();
             }
         }
         return selection;
     }
 
-    public int userIntInput(int selection, int begRange, int endRange) {
+    private int userIntInput(int selection, int begRange, int endRange) {
         while (selection < begRange || selection >endRange) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Please select a valid entry between " + begRange

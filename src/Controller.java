@@ -7,13 +7,12 @@ public class Controller {
     Balance balance;
     int currentBal;
     User user;
-    //Validator validator;
 
     public Controller() {
         transaction = new Transaction();
         previousTxn = new PreviousTXN();
         balance = new Balance();
-        //validator = new Validator();
+
     }
 
     public void run() {
@@ -47,14 +46,13 @@ public class Controller {
 
     private void selection (User user) {
         int selection = transaction.validator.selection(1,5);
-        //int selection = validator.selection(1,5);
+
         if(selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
 
         } else if (selection == 2) {
             do {
-                //deposit.userSelectedDeposit(user, validator.deposit());
                 transaction.makeTransaction(user, "deposit");
             } while(again("make another deposit?"));
 
@@ -70,7 +68,6 @@ public class Controller {
         System.out.println("\nWould you like to " + title);
         System.out.println("Enter 1 for Yes or 2 for No");
         int answer = transaction.validator.selection(1,2);
-        //int answer =  validator.selection(1,2);
         if (answer == 1) {
             return true;
         } else
