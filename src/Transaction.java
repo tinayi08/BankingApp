@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class Transaction {
     int amount;
+    Validator validator;
+
+    public Transaction() {
+        validator = new Validator();
+    }
 
     public void makeTransaction(User user, String action) {
         howMuchToMove(action);
@@ -13,7 +18,8 @@ public class Transaction {
         Scanner scan = new Scanner(System.in);
         System.out.println("How much would you like to " + action + " today?");
         //TODO - Try to make this better
-        amount = new Validator().deposit();
+        amount = validator.amountToMove();
+        //amount = new Validator().deposit();
         return amount;
     }
 //    private void howMuchToDeposit() {

@@ -24,14 +24,14 @@ public class Validator {
         while (selection < begRange || selection >endRange) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Please select a valid entry between " + begRange
-            + " and " + endRange);
+            + " and " + endRange + ":");
             selection = scan.nextInt();
         }
         return selection;
 
     }
 
-    public int deposit() {
+    public int amountToMove() {
         Scanner scan = new Scanner(System.in);
         boolean isValid = false;
         int deposit = 0;

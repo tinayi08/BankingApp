@@ -7,13 +7,13 @@ public class Controller {
     Balance balance;
     int currentBal;
     User user;
-    Validator validator;
+    //Validator validator;
 
     public Controller() {
         transaction = new Transaction();
         previousTxn = new PreviousTXN();
         balance = new Balance();
-        validator = new Validator();
+        //validator = new Validator();
     }
 
     public void run() {
@@ -46,7 +46,8 @@ public class Controller {
 
 
     private void selection (User user) {
-        int selection = validator.selection(1,5);
+        int selection = transaction.validator.selection(1,5);
+        //int selection = validator.selection(1,5);
         if(selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
@@ -68,7 +69,8 @@ public class Controller {
         Scanner scan = new Scanner(System.in);
         System.out.println("\nWould you like to " + title);
         System.out.println("Enter 1 for Yes or 2 for No");
-        int answer =  validator.selection(1,2);
+        int answer = transaction.validator.selection(1,2);
+        //int answer =  validator.selection(1,2);
         if (answer == 1) {
             return true;
         } else
