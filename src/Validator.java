@@ -47,4 +47,24 @@ public class Validator {
         }
         return deposit;
     }
+
+    public String yesOrNo() {
+        Scanner scan = new Scanner(System.in);
+        String answer = "";
+        boolean isValid = false;
+        while (!isValid) {
+            try {
+                answer = scan.next();
+                while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
+                    System.out.println("Please enter yes or no");
+                    answer = scan.next();
+                }
+                isValid = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter yes or no");
+                scan.next();
+            }
+        }
+        return answer;
+    }
 }

@@ -21,6 +21,7 @@ public class Controller {
             menu();
             selection(user);
         } while (again("return to the main menu?"));
+        System.out.println("Thank you for banking with us.");
     }
 
     private User initUser() {
@@ -60,15 +61,19 @@ public class Controller {
             do {
                 transaction.makeTransaction(user,"withdraw");
             } while (again("make another withdraw?"));
-        }
+        } else if (selection == 4) {
+
+        } else
+            return;
     }
 
     private boolean again(String title) {
         Scanner scan = new Scanner(System.in);
         System.out.println("\nWould you like to " + title);
-        System.out.println("Enter 1 for Yes or 2 for No");
-        int answer = transaction.validator.selection(1,2);
-        if (answer == 1) {
+        //System.out.println("Enter 1 for Yes or 2 for No");
+        String answer = transaction.validator.yesOrNo();
+        //int answer = transaction.validator.selection(1,2);
+        if (answer.equalsIgnoreCase("yes")) {
             return true;
         } else
             return false;
