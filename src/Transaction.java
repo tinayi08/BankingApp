@@ -23,7 +23,6 @@ public class Transaction {
 
 
     private PreviousTXN howMuchToMove(String action, int currentBal) {
-        Scanner scan = new Scanner(System.in);
         System.out.println("How much would you like to " + action + " today?");
         if (action.equalsIgnoreCase("deposit")) {
             amount = validator.amountToDeposit();

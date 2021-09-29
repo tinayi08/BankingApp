@@ -4,7 +4,6 @@ public class PreviousTXN {
 
     int amount;
     String action;
-    Date date;
 
     public PreviousTXN() {
 
@@ -13,23 +12,6 @@ public class PreviousTXN {
 
     public PreviousTXN(int amount, String action) {
         this.amount = amount;
-        this.action = action;
-        //this.date = date;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
         this.action = action;
     }
 
@@ -43,19 +25,5 @@ public class PreviousTXN {
             System.out.println("You have withdrawn $" + amount + " from your account today.");
         }
     }
-
-    public void transaction() {
-        System.out.println(date + action + "$" + amount);
-    }
-    public void lastTransaction(int selection, int amount) {
-
-        if (selection == 2) {
-            transaction();
-        } else if (selection == 3) {
-            transaction();
-        } else
-            System.out.println("You have not made a transaction yet.");
-    }
-
 
 }
