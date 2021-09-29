@@ -1,16 +1,15 @@
+import java.util.Date;
 import java.util.Scanner;
 
 public class Controller {
 
     Transaction transaction;
-    PreviousTXN previousTxn;
     Balance balance;
-    int currentBal;
     User user;
+    PreviousTXN previousTXN;
 
     public Controller() {
         transaction = new Transaction();
-        previousTxn = new PreviousTXN();
         balance = new Balance();
 
     }
@@ -45,12 +44,12 @@ public class Controller {
     }
 
     private void selection (User user) {
+
         int selection = transaction.validator.selection(1,4);
         if(selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
         } else if (selection == 2) {
-
             do {
                 transaction.makeTransaction(user, "deposit");
             } while(again("make another deposit?"));
@@ -58,14 +57,16 @@ public class Controller {
         } else if (selection == 3) {
             do {
                 if (user.getBalance() == 0) {
-                    System.out.println("Your balance is 0. You have no funds to withdraw.");
+                    System.out.println("Your balance is $0. You have no funds to withdraw.");
                     return;
                 }
                 transaction.makeTransaction(user,"withdraw");
             } while (again("make another withdraw?"));
         } else if (selection == 4) {
+            transaction.previousTXN.statement();
+
             //TODO -- Make an array for previous transaction...
-            //previousTxn.lastTransaction(prevTXNSelection, amount);
+
         }
     }
 
