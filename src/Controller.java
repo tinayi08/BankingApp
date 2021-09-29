@@ -3,10 +3,9 @@ import java.util.Scanner;
 
 public class Controller {
 
-    Transaction transaction;
-    Balance balance;
-    User user;
-    PreviousTXN previousTXN;
+    private Transaction transaction;
+    private Balance balance;
+    private User user;
 
     public Controller() {
         transaction = new Transaction();
@@ -30,7 +29,7 @@ public class Controller {
     }
 
     private void welcomeMessage(User initUser) {
-        System.out.println("Welcome to the bank, " + initUser.name + ". What would you like" +
+        System.out.println("Welcome to the bank, " + initUser.getName() + ". What would you like" +
                 " to do today?");
     }
 

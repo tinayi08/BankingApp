@@ -2,7 +2,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Transaction {
-    int amount;
+    private int amount;
     Validator validator;
     PreviousTXN previousTXN;
 
@@ -17,8 +17,10 @@ public class Transaction {
 
         previousTXN = howMuchToMove(action, user.getBalance());
         user.setBalance(updatedBalance(user.getBalance(), action));
+        //previousTXN.transactionList.add(previousTXN);
         //return amount;
     }
+
 
 
 
@@ -29,6 +31,7 @@ public class Transaction {
         } else
             amount = validator.amountToWithdraw(currentBal);
 
+        previousTXN.addToTransactionList(amount,action);
         PreviousTXN newTXN = new PreviousTXN(amount, action);
 
         return newTXN;

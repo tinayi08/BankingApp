@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class User {
-    String name;
-    int accNum;
-    int balance = 1567;
+    private String name;
+    private int accNum;
+    private int balance = 1567;
 
     public String getName() {
         return name;
