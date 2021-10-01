@@ -42,16 +42,16 @@ public class Controller {
 
     }
 
-    private void selection (User user) {
+    private void selection(User user) {
 
         int selection = transaction.validator.selection(1,4);
-        if(selection == 1) {
+        if (selection == 1) {
             user.setBalance(balance.currentBalance(user));
             System.out.println("Current balance is: " + user.getBalance());
         } else if (selection == 2) {
             do {
                 transaction.makeTransaction(user, "deposit");
-            } while(again("make another deposit?"));
+            } while (again("make another deposit?"));
 
         } else if (selection == 3) {
             do {

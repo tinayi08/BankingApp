@@ -15,7 +15,6 @@ public class Transaction {
 
     public void makeTransaction(User user, String action) {
         amount = howMuchToMove(action, user.getBalance());
-
         user.setBalance(updatedBalance(user.getBalance(), action));
         previousTXN.addToTransactionList(amount, action, user.getBalance());
 
@@ -29,8 +28,6 @@ public class Transaction {
             amount = validator.amountToDeposit();
         } else
             amount = validator.amountToWithdraw(currentBal);
-        //previousTXN.addToTransactionList(amount, action, currentBal);
-
 
         return amount;
 
