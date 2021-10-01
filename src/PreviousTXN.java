@@ -26,15 +26,13 @@ public class PreviousTXN {
     }
 
     public void statement() {
-        //TODO - add remaining balance and list the transactions better
 
         for (PreviousTXN t : transactionList) {
             if (t.action.equalsIgnoreCase("deposit")) {
-                System.out.println("You have deposited $" + t.amount + " into your account today. Balance: " + t.cBal);
+                System.out.println("Deposit: $" + t.amount + " Balance: " + t.cBal);
             } else if (t.action.equalsIgnoreCase("withdraw")) {
-                System.out.println("You have withdrawn $" + t.amount + " from your account today. Balance: " + t.cBal);
+                System.out.println("Withdrawal: $" + t.amount + " Balance: " + t.cBal);
             }
-
         }
 
         if (transactionList == null) {
