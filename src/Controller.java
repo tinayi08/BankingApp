@@ -64,8 +64,6 @@ public class Controller {
         } else if (selection == 4) {
             transaction.previousTXN.statement();
 
-            //TODO -- Make an array for previous transaction...
-
         }
     }
 

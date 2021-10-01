@@ -1,10 +1,11 @@
 import java.util.Date;
-import java.util.Scanner;
+
 
 public class Transaction {
     private int amount;
     Validator validator;
     PreviousTXN previousTXN;
+    //private int cBal;
 
 
     public Transaction() {
@@ -14,25 +15,25 @@ public class Transaction {
     }
 
     public void makeTransaction(User user, String action) {
-        howMuchToMove(action, user.getBalance());
+        amount = howMuchToMove(action, user.getBalance());
         //previousTXN = howMuchToMove(action, user.getBalance());
         user.setBalance(updatedBalance(user.getBalance(), action));
+        previousTXN.addToTransactionList(amount, action, user.getBalance());
 
     }
 
-
-
-
     //private PreviousTXN howMuchToMove(String action, int currentBal) {
-    private void howMuchToMove(String action, int currentBal) {
+    private int howMuchToMove(String action, int currentBal) {
+
         System.out.println("How much would you like to " + action + " today?");
         if (action.equalsIgnoreCase("deposit")) {
             amount = validator.amountToDeposit();
         } else
             amount = validator.amountToWithdraw(currentBal);
-        previousTXN.addToTransactionList(amount,action);
-        //PreviousTXN newTXN = new PreviousTXN(amount, action);
+        //previousTXN.addToTransactionList(amount, action, currentBal);
 
+
+        return amount;
         //return newTXN;
 
     }
