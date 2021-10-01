@@ -9,10 +9,6 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getBalance() {
         return balance;
     }
@@ -21,17 +17,6 @@ public class User {
         this.balance = balance;
     }
 
-    public void setBalance() {
-        this.balance = balance;
-    }
-
-    public int getAccNum() {
-        return accNum;
-    }
-
-    public void setAccNum(int accNum) {
-        this.accNum = accNum;
-    }
 
     public void createUser() {
         System.out.println("Hello");

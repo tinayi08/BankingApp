@@ -26,7 +26,6 @@ public class PreviousTXN {
     }
 
     public void statement() {
-
         for (PreviousTXN t : transactionList) {
             if (t.action.equalsIgnoreCase("deposit")) {
                 System.out.println("Deposit: $" + t.amount + " Balance: " + t.cBal);

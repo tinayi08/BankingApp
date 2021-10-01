@@ -68,7 +68,6 @@ public class Controller {
     }
 
     private boolean again(String title) {
-        Scanner scan = new Scanner(System.in);
         System.out.println("\nWould you like to " + title);
         String answer = transaction.validator.yesOrNo();
         if (answer.equalsIgnoreCase("yes")) {
